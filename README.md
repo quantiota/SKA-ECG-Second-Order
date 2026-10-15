@@ -19,12 +19,12 @@ leaves it.
 
 ## The second-order axes
 
-| | first order (per transition) | second order (per cycle) |
+| | first order: one step per transition | second order: one step per cycle |
 |---|---|---|
-| z₂ | ‖Z‖ of the 5 transitions | ‖Z₂‖ of the returns of c_k |
-| Δt₂ | time between two waves | time between two cycles |
-| ż₂ | dz/dt | dz₂/dt₂ |
-| P₂ | exp(−\|ΔH/H\|), first-order entropy | exp(−\|ΔH₂/H₂\|), second-order entropy |
+| knowledge | z = ‖Z‖, learned from the 5 transitions | z₂ = ‖Z₂‖, learned from the returns of c_k |
+| time step | Δt = time between two waves | Δt₂ = time between two cycles |
+| rate | ż = dz/dt | ż₂ = dz₂/dt₂ |
+| probability | P = exp(−\|ΔH/H\|) | P₂ = exp(−\|ΔH₂/H₂\|) |
 
 ## Data
 
