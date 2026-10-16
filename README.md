@@ -33,6 +33,7 @@ leaves it.
   (Starter-Kit), each at her selected scale.
 - [`ptb/`](ptb/) — PhysioNet PTB, lead II, first order from
   [SKA-ECG-Pathology](https://github.com/quantiota/SKA-ECG-Pathology).
+  The 23 controls aged 40 and over: first order at scale 25, same pipeline, not published.
 
 Each holds `data/`, `figures/` and `vr/` (one cube per record, links in `vr/README.md`).
 
@@ -86,7 +87,7 @@ Axes z₂, ż₂, P₂; colour = the sign of the return. Open in a browser; a he
 
 PhysioNet PTB Diagnostic ECG Database, lead II, 1000 Hz. One cube per record: second-order learning (scale 25) of its first-order run at scale 25. Axes z₂, ż₂, P₂; colour = the sign of the return.
 
-### Healthy controls
+### Healthy controls, under 40
 
 | age | record | cube |
 |---|---|---|
@@ -95,6 +96,34 @@ PhysioNet PTB Diagnostic ECG Database, lead II, 1000 Hz. One cube per record: se
 | 28 | ptb242 | [open](https://quantiota.github.io/SKA-ECG-Second-Order/ptb/vr/ska2_ecg_ptb242_scale25_scale25_vr.html) |
 | 32 | ptb105 | [open](https://quantiota.github.io/SKA-ECG-Second-Order/ptb/vr/ska2_ecg_ptb105_scale25_scale25_vr.html) |
 | 35 | ptb279 | [open](https://quantiota.github.io/SKA-ECG-Second-Order/ptb/vr/ska2_ecg_ptb279_scale25_scale25_vr.html) |
+
+### Healthy controls, 40 and over
+
+| age | sex | record | cube |
+|---|---|---|---|
+| 40 | male | ptb251 | [open](https://quantiota.github.io/SKA-ECG-Second-Order/ptb/vr/ska2_ecg_ptb251_scale25_scale25_vr.html) |
+| 44 | male | ptb244 | [open](https://quantiota.github.io/SKA-ECG-Second-Order/ptb/vr/ska2_ecg_ptb244_scale25_scale25_vr.html) |
+| 45 | male | ptb264 | [open](https://quantiota.github.io/SKA-ECG-Second-Order/ptb/vr/ska2_ecg_ptb264_scale25_scale25_vr.html) |
+| 47 | male | ptb237 | [open](https://quantiota.github.io/SKA-ECG-Second-Order/ptb/vr/ska2_ecg_ptb237_scale25_scale25_vr.html) |
+| 48 | female | ptb247 | [open](https://quantiota.github.io/SKA-ECG-Second-Order/ptb/vr/ska2_ecg_ptb247_scale25_scale25_vr.html) |
+| 48 | male | ptb284 | [open](https://quantiota.github.io/SKA-ECG-Second-Order/ptb/vr/ska2_ecg_ptb284_scale25_scale25_vr.html) |
+| 50 | male | ptb172 | [open](https://quantiota.github.io/SKA-ECG-Second-Order/ptb/vr/ska2_ecg_ptb172_scale25_scale25_vr.html) |
+| 52 | female | ptb243 | [open](https://quantiota.github.io/SKA-ECG-Second-Order/ptb/vr/ska2_ecg_ptb243_scale25_scale25_vr.html) |
+| 54 | female | ptb169 | [open](https://quantiota.github.io/SKA-ECG-Second-Order/ptb/vr/ska2_ecg_ptb169_scale25_scale25_vr.html) |
+| 54 | male | ptb116 | [open](https://quantiota.github.io/SKA-ECG-Second-Order/ptb/vr/ska2_ecg_ptb116_scale25_scale25_vr.html) |
+| 54 | male | ptb246 | [open](https://quantiota.github.io/SKA-ECG-Second-Order/ptb/vr/ska2_ecg_ptb246_scale25_scale25_vr.html) |
+| 54 | male | ptb252 | [open](https://quantiota.github.io/SKA-ECG-Second-Order/ptb/vr/ska2_ecg_ptb252_scale25_scale25_vr.html) |
+| 55 | male | ptb229 | [open](https://quantiota.github.io/SKA-ECG-Second-Order/ptb/vr/ska2_ecg_ptb229_scale25_scale25_vr.html) |
+| 57 | female | ptb173 | [open](https://quantiota.github.io/SKA-ECG-Second-Order/ptb/vr/ska2_ecg_ptb173_scale25_scale25_vr.html) |
+| 58 | male | ptb104 | [open](https://quantiota.github.io/SKA-ECG-Second-Order/ptb/vr/ska2_ecg_ptb104_scale25_scale25_vr.html) |
+| 59 | male | ptb239 | [open](https://quantiota.github.io/SKA-ECG-Second-Order/ptb/vr/ska2_ecg_ptb239_scale25_scale25_vr.html) |
+| 64 | male | ptb248 | [open](https://quantiota.github.io/SKA-ECG-Second-Order/ptb/vr/ska2_ecg_ptb248_scale25_scale25_vr.html) |
+| 67 | female | ptb267 | [open](https://quantiota.github.io/SKA-ECG-Second-Order/ptb/vr/ska2_ecg_ptb267_scale25_scale25_vr.html) |
+| 68 | male | ptb122 | [open](https://quantiota.github.io/SKA-ECG-Second-Order/ptb/vr/ska2_ecg_ptb122_scale25_scale25_vr.html) |
+| 68 | male | ptb266 | [open](https://quantiota.github.io/SKA-ECG-Second-Order/ptb/vr/ska2_ecg_ptb266_scale25_scale25_vr.html) |
+| 69 | female | ptb121 | [open](https://quantiota.github.io/SKA-ECG-Second-Order/ptb/vr/ska2_ecg_ptb121_scale25_scale25_vr.html) |
+| 69 | male | ptb255 | [open](https://quantiota.github.io/SKA-ECG-Second-Order/ptb/vr/ska2_ecg_ptb255_scale25_scale25_vr.html) |
+| 81 | female | ptb184 | [open](https://quantiota.github.io/SKA-ECG-Second-Order/ptb/vr/ska2_ecg_ptb184_scale25_scale25_vr.html) |
 
 ### Myocardial infarction, women
 
