@@ -8,7 +8,7 @@ between two cycles, instead of P₂. Open the HTML file in a browser.
 Usage
     python scripts/build_cube2.py aging 0060 25 25    # → aging/vr/ska2_ecg_0060_scale25_scale25_vr.html
     python scripts/build_cube2.py aging 0060 25 25 dt # → aging/vr/ska2_ecg_0060_scale25_scale25_dt_vr.html
-Requires: <dataset>/data/ska2_<record>_scale<s1>_scale<s2>.csv (learn_second_order.py), pandas
+Requires: <dataset>/data/ska2_<record>_scale<s1>_scale<s2>.csv (the second-order learning results), pandas
 """
 import json
 import sys
