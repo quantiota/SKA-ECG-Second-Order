@@ -216,7 +216,6 @@ PhysioNet PTB Diagnostic ECG Database, lead II, 1000 Hz. One cube per record: se
 ```bash
 cd scripts
 python cycle_vectors.py aging 0060 25            # cycle vectors, path, c_k, return
-python learn_second_order.py aging 0060 25 25    # second-order learning (second-order scale 25)
 python plot_second_order.py aging 0060 25 25     # figure
 python build_cube2.py aging 0060 25 25           # cube
 python cycle_vectors.py ptb ptb049_s0173 25      # the same for a PTB record: dataset ptb
