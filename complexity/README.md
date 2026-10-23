@@ -18,10 +18,6 @@ The first 20 cycles (the learning phase) are left out of both measures.
 
 *The trajectory of v in the 10 spaces of 3 of the 5 axes. Colour = cycle index k.*
 
-![trajectory, first 3 principal components](ska_0060_scale25_cycle_trajectory_3d.png)
-
-*The same trajectory, projected on its first 3 principal components.*
-
 After the learning phase the cycle stays in one small, flat cloud: dimension 1.88, spread 0.022
 (median) and 0.049 (95 %). It moves mostly along P→Q and S→T; T→P and R→S almost stay fixed.
 All values are in [`complexity.csv`](complexity.csv).
@@ -40,5 +36,5 @@ hypothesis, not tested here.
 python complexity/trajectory_3d.py aging 0060 25
 ```
 
-Reads `aging/data/cycles_0060_scale25.csv` (from `scripts/cycle_vectors.py`), writes the two
-figures here and adds the record to `complexity.csv`. Requires numpy, pandas, matplotlib.
+Reads `aging/data/cycles_0060_scale25.csv` (from `scripts/cycle_vectors.py`), writes the figure
+here and adds the record to `complexity.csv`. Requires numpy, pandas, matplotlib.

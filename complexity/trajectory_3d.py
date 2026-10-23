@@ -1,16 +1,15 @@
 #!/usr/bin/env python3
-"""The trajectory of the cycle vector in the 5-axis probability space, projected on 3 axes.
+"""The trajectory of the cycle vector in the 5-axis probability space, seen on 3 axes at a time.
 
     v_k = (P of P→Q, Q→R, R→S, S→T, T→P), one point per cycle in [0, 1]^5
-    projection: the first 3 principal components of the points (PCA), colour = cycle index k
-    and the 10 spaces of 3 of the 5 axes (P→Q, Q→R, R→S, S→T, T→P taken 3 at a time)
+    the 10 spaces of 3 of the 5 axes (P→Q, Q→R, R→S, S→T, T→P taken 3 at a time), colour = cycle index k
     complexity of the cloud, after the first SKIP cycles (learning phase):
         dimension = participation ratio (Σλ)² / Σλ², λ = eigenvalues of the covariance of v
         spread    = median and 95 % distance of v from the centre of the cloud
 
 Usage
     python complexity/trajectory_3d.py aging 0060 25
-        → complexity/ska_0060_scale25_cycle_trajectory_3d.png, ska_0060_scale25_cycle_trajectory_3axes.png,
+        → complexity/ska_0060_scale25_cycle_trajectory_3axes.png,
           complexity/complexity.csv (one row per record, updated)
 Requires: <dataset>/data/cycles_<record>_scale<s>.csv (cycle_vectors.py), numpy, pandas, matplotlib
 """
@@ -40,8 +39,7 @@ def complexity(v):
     d = np.linalg.norm(v - v.mean(0), axis=1)
     return {"cycles": len(v), "dimension": lam.sum() ** 2 / (lam ** 2).sum(),
             "spread_median": np.median(d), "spread_95": np.percentile(d, 95),
-            **{"sd_" + c[2:]: x for c, x in zip(COLS, v.std(0))},
-            **{f"share_pc{i + 1}": x for i, x in enumerate(lam / lam.sum())}}
+            **{"sd_" + c[2:]: x for c, x in zip(COLS, v.std(0))}}
 
 
 def all_axes(c, rec, scale, fig_dir):
@@ -70,23 +68,6 @@ def main():
     rec, f = record(ds, rec), folder(ds)
     c = pd.read_csv(f / "data" / f"cycles_{rec}_scale{scale:g}.csv")
     v = c[COLS].to_numpy(float)
-    m = v - v.mean(0)
-    _, s, vt = np.linalg.svd(m, full_matrices=False)
-    y = m @ vt[:3].T
-    share = s[:3] ** 2 / (s ** 2).sum()
-    fig = plt.figure(figsize=(9, 8))
-    ax = fig.add_subplot(projection="3d")
-    ax.plot(*y.T, lw=.4, color="#999999", alpha=.6)
-    sc = ax.scatter(*y.T, c=c.k, s=6, cmap="viridis")
-    fig.colorbar(sc, ax=ax, shrink=.6, label="cycle index k")
-    for i, a in enumerate((ax.set_xlabel, ax.set_ylabel, ax.set_zlabel)):
-        a(f"PC{i + 1} ({share[i]:.0%})")
-    ax.set_title(f"Record {rec}, scale {scale:g}: trajectory of v = (P of P→Q, Q→R, R→S, S→T, T→P)\n"
-                 "in the 5-axis probability space, projected on its first 3 principal components")
-    out = HERE / f"ska_{rec}_scale{scale:g}_cycle_trajectory_3d.png"
-    fig.tight_layout()
-    fig.savefig(out, dpi=130)
-    print(f"saved {out}  ({len(v)} cycles, PC1–3 = {share.sum():.0%} of the variance)")
     all_axes(c, rec, scale, HERE)
     row = {"dataset": ds, "record": rec, "scale": scale, **complexity(v[SKIP:])}
     csv = HERE / "complexity.csv"
@@ -95,7 +76,6 @@ def main():
         t = t[~((t.dataset == ds) & (t.record == rec) & (t.scale == scale))]
     pd.concat([t, pd.DataFrame([row])]).to_csv(csv, index=False, float_format="%.4g")
     print(f"dimension {row['dimension']:.2f}, spread median {row['spread_median']:.4f}, 95 % {row['spread_95']:.4f}")
-    print("loadings (rows PC1..3, columns", COLS, ")\n", np.round(vt[:3], 2))
 
 
 if __name__ == "__main__":
